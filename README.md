@@ -8,6 +8,10 @@ Frontend: React, Redux, TypeScript
 Database: PostgreSQL
 Authentication: JWT
 
+# Sample login account
+alice@example.com
+password123
+
 Installation:
 1. Clone the repository:
 git clone https://github.com/yilinruan/invoice-app.git
