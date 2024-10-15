@@ -16,8 +16,7 @@ git clone https://github.com/yilinruan/invoice-app.git
 # Backend
 cd invoice-api
 npm install
-npx prisma migrate deploy 
-npm run build 
+npx prisma migrate dev --name init
 npm run seed
 npm start
 
@@ -26,3 +25,9 @@ cd ../invoice-app
 npm install
 npm run build 
 npm run dev
+
+To run with Docker: 
+1. cd to the root folder
+2. docker-compose up --build
+
+Issue: Sometime when running => " docker-compose up --build " in docker, you might see the error of backend service is trying to connect to the database before it's ready to accept connections. I don't have much experiences with docker and not sure how to prevent this. So please try to run it again when you see this issue.
