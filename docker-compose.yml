@@ -19,14 +19,13 @@ services:
       - "3000:3000"  
     depends_on:
       - db
-    command: ["npm", "run", "start"]
 
   frontend:
     build:
       context: ./invoice-app
       dockerfile: Dockerfile
     ports:
-      - "3001:3000"  
+      - "5173:5173"
     depends_on:
       - backend
-    command: ["npm", "run", "dev"]
+ 
