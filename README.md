@@ -9,8 +9,8 @@ Database: PostgreSQL
 Authentication: JWT
 
 # Sample login account
-alice@example.com
-password123
+-username: alice@example.com
+-password: password123
 
 Installation:
 1. Clone the repository:
