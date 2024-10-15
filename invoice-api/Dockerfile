@@ -13,17 +13,11 @@ RUN npm install
 # Copy the rest of your application code
 COPY . .
 
-# Run Prisma migrations
-RUN npx prisma migrate deploy
+# Copy the wait script
+COPY wait-for-db.sh .
 
-# Build the application
-RUN npm run build
+# Make the wait script executable
+RUN chmod +x wait-for-db.sh
 
-# Seed the database
-RUN npm run seed
-
-# Expose the application's port
-EXPOSE 3000
-
-# Command to run your application
-CMD ["npm", "start"]
+# Wait for the database to be ready, then run Prisma migrations
+CMD ["sh", "wait-for-db.sh"]
