@@ -1,34 +1,32 @@
-version: '3.8'  # Use a more recent version if you need features from later versions
-
 services:
   db:
-    image: postgres:latest       # Use the latest PostgreSQL image
+    image: postgres:latest
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1005aaaa
       POSTGRES_DB: mydb
     ports:
-      - "5432:5432"               # Map port 5432 on the host to port 5432 in the container
+      - "5432:5432" 
 
   backend:
     build:
-      context: ./invoice-api    # Path to the backend Dockerfile
+      context: ./invoice-api
       dockerfile: Dockerfile
     environment:
       DATABASE_URL: "postgresql://postgres:1005aaaa@db:5432/mydb?schema=public"
       JWT_SECRET: "secret123"
     ports:
-      - "3000:3000"              # Map port 3000 on the host to port 3000 in the container
+      - "3000:3000"  
     depends_on:
-      - db                        # Ensure the database service starts before the backend
-    command: ["npm", "run", "start"]  # Adjust if needed, ensure it starts your app
+      - db
+    command: ["npm", "run", "start"]
 
   frontend:
     build:
-      context: ./invoice-app     # Path to the frontend Dockerfile
+      context: ./invoice-app
       dockerfile: Dockerfile
     ports:
-      - "3001:3000"              # Map port 3001 on the host to port 3000 in the container
+      - "3001:3000"  
     depends_on:
-      - backend                   # Ensure the backend service starts before the frontend
-    command: ["npm", "run", "start"]  # Adjust if needed, ensure it starts your app
+      - backend
+    command: ["npm", "run", "dev"]
