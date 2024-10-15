@@ -14,17 +14,17 @@ git clone https://github.com/yilinruan/invoice-app.git
 
 2. Install dependencies for both frontend and backend:
 # Backend
-cd invoice-api
-npm install
-npx prisma migrate dev --name init
-npm run seed
-npm start
+1. cd invoice-api
+2. npm install
+3. npx prisma migrate dev --name init
+4. npm run seed
+5. npm start
 
 # Frontend
-cd ../invoice-app
-npm install
-npm run build 
-npm run dev
+1. cd ../invoice-app
+2. npm install
+3. npm run build
+4. npm run dev
 
 To run with Docker: 
 1. cd to the root folder
