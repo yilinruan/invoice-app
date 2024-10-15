@@ -9,10 +9,10 @@ Database: PostgreSQL
 Authentication: JWT
 
 # Sample login account
--username: alice@example.com
--password: password123
+- username: alice@example.com
+- password: password123
 
-Installation:
+# Installation:
 1. Clone the repository:
 git clone https://github.com/yilinruan/invoice-app.git
 
